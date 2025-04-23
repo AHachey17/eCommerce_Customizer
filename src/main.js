@@ -66,6 +66,19 @@ document.addEventListener("keydown", function(e) {
     }
 }, false);
 
+//Delete button
+document.getElementById("delete-button").addEventListener("click", function() {
+    const activeObject = canvas.getActiveObject();
+    if (activeObject) {
+        console.log("Deleting selected object via button");
+        canvas.remove(activeObject);
+        canvas.discardActiveObject(); // optional
+        canvas.requestRenderAll();    // refreshes canvas
+    } else {
+        console.log("No object selected to delete.");
+    }
+});
+
 // Define as node the T-Shirt Div
 var node = document.getElementById('tshirt-div');
 
